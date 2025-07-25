@@ -104,28 +104,6 @@ Optional: built a lightweight Streamlit dashboard for interactivity.
 | Dashboard (opt)  | Streamlit                     |
 | Documentation    | Markdown, Visuals             |
 
-## Repository Structure
-
-```
-aml-guard/
-├── data/
-│   ├── synthetic_transactions.csv
-│   └── sample_customers.csv
-├── notebooks/
-│   └── eda_and_model_exploration.ipynb
-├── logic/
-│   ├── rule_based_detector.py
-│   └── feature_engineering.py
-├── models/
-│   └── train_model.py
-├── visualizations/
-│   └── fraud_trends.png
-├── streamlit_app/
-│   └── app.py
-├── reports/
-│   └── final_report.md
-└── README.md
-```
 
 ## What This Project Demonstrates
 
