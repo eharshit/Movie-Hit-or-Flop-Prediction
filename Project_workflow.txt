@@ -1,1 +1,87 @@
 AMLGuard – Detecting Suspicious Financial Transactions
+
+- Building a fully custom Anti-Money Laundering (AML) system from scratch no premade datasets using (Synthetic data)
+- SQL for data handling and querying
+- Rule-based logic for known patterns
+- Machine learning for hidden anomalies
+
+1. Data Generation (Synthetic)
+
+Why? Real bank data is private. So we simulate realistic data ourselves.
+
+We’ll create two core datasets:
+
+1) customers → contains KYC-like data: age, region, income, risk score
+
+2) transactions → contains realistic transaction logs: timestamps, amounts, types, sender/receiver IDs
+
+We’ll inject fraud patterns manually (e.g. smurfing, large transfers, circular payments) so we can train + validate models later.
+
+
+
+2) Store Data in SQL (SQLite)
+Why? Most real systems use SQL databases. So we simulate that.
+
+We’ll:
+- Create tables for customers and transactions
+- Insert synthetic data into SQLite database
+- Write meaningful SQL queries to extract and slice the data like a data analyst would
+
+For example:
+Find users with too many high-value transfers in a day
+Flag transactions to risky regions
+Join transaction and customer info to create risk profiles
+This adds realism and broadens your stack (analyst + engineering touch).
+
+3) Exploratory Data Analysis (EDA)
+Why? Understand patterns, trends, and spot red flags.
+
+We’ll:
+Visualize fraud vs normal behavior
+Explore correlations (like age vs risk, amount vs type)
+Plot spikes in certain transaction behaviors over time
+Understand what makes a transaction “suspicious”
+This sets the foundation for our detection logic.
+
+
+4. Rule-Based Detection Engine
+Why? Some fraud patterns are well-known and easy to codify.
+We’ll build a Python module that applies domain-specific rules like:
+More than X large cash deposits in 24 hours
+Transactions to known flagged regions
+Repeated transfers just under the regulatory limit
+Accounts sending money but never receiving
+This gives us a transparent first-pass detection layer, like what many real AML systems use.
+
+
+5. Machine Learning Model
+Why? Some patterns are complex or hidden — ML can catch them.
+
+We’ll:
+Engineer features from SQL + rule output (velocity, frequency, ratio-based features)
+Train a classifier (e.g. Random Forest or XGBoost)
+Predict whether a transaction is suspicious
+Use confidence scores for ranking
+We’ll compare performance vs the rule-based system and combine them where useful.
+
+6. Visual Output & Interpretability
+Why? Clear insights = better communication.
+
+We’ll:
+Show which features contribute most to fraud detection
+Plot timelines of risky transactions
+Generate a final risk score per transaction or user
+Optionally simulate alerts (e.g. top 10 risky accounts)
+
+
+7. Final Report
+We’ll document:
+What data we created and why
+What rules we built and how they perform
+How the ML model works and what it found
+Where rule-based and ML logic complement each other
+Limitations and real-world extensions (like streaming or alert dashboards)
+
+
+
+
